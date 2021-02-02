@@ -1,0 +1,10 @@
+{
+  "name": "test-release",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "wmoai <wmoaism@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "standard-version": "^9.1.0"
+  }
+}
