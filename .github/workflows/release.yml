@@ -1,0 +1,24 @@
+name: automatic release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
+      - name: run
+        run: |
+          echo ${{ github.ref }}
+          yarn install
+          yarn release
+          echo ${{ github.ref }}
+    
+      
+
