@@ -19,10 +19,14 @@ jobs:
           git config user.name "github-actions[bot]"
       - name: run
         run: |
-          echo ${{ github.ref }}
+          git checkout -b release-working
           yarn install
           yarn release
-          echo ${{ github.ref }}
+          git push origin --tags
+          git checkout -b release-commit master
+          git cherry-pick release-working
+          git push origin release-commit
+
     
       
 
