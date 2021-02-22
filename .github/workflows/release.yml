@@ -23,6 +23,8 @@ jobs:
           yarn install
           yarn release
           tag=$(git describe)
-          echo $tag
-     
+          git push origin $tag
+          git checkout -b merge-release master
+          git cherry-pick $tag
+          git push origin merge-release
 
