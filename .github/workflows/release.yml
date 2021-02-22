@@ -24,7 +24,7 @@ jobs:
           yarn release
           tag=$(git describe)
           git push origin $tag
-          git checkout -b merge-release master
+          git checkout master
           git cherry-pick $tag
       - name: Create PR
         uses: peter-evans/create-pull-request@v3
