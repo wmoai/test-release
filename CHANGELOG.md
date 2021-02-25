@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://github.com/wmoai/test-release/compare/v1.1.0...v1.1.1) (2021-02-25)
+
+
+### Bug Fixes
+
+* add $ ([0479a50](https://github.com/wmoai/test-release/commit/0479a50316fcf1f09d03c2b8e7de52ed35221ca6))
+* modify release ([65e9e49](https://github.com/wmoai/test-release/commit/65e9e491bb7342e6734ac9a4c8803957c75ad426))
+* modify release ([6b0dbc8](https://github.com/wmoai/test-release/commit/6b0dbc8d99dd9337931f8ae9f9c946ef99082568))
+* remove branch ([929dc0c](https://github.com/wmoai/test-release/commit/929dc0c6b4b1cc0e6167c2c2ee9de3e9c1c8329b))
+
 ## [1.1.0](https://github.com/wmoai/test-release/compare/v1.0.0...v1.1.0) (2021-02-22)
 
 
