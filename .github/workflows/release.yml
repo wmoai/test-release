@@ -2,6 +2,7 @@ name: automatic release
 
 on:
   workflow_dispatch:
+    branches: [ master ]
 
 jobs:
   release:
@@ -13,21 +14,24 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: 12
-      - name: git config
+      - name: Git config
         run: |
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-      - name: run release
+      - name: Prepare release
         run: |
           baseTag=v$(npx -c 'echo "$npm_package_version"')
           git checkout $baseTag
-          git merge --no-ff --no-edit ${{ github.ref }}
+          git merge --no-ff --no-edit master
+      - name: Run release
+        run: |
           yarn install
           yarn release
+      - name: Push release
+        run: |
           newTag=$(git describe)
           git push origin $newTag
           git checkout master
           git cherry-pick $newTag
-      - name: Create PR
-        uses: peter-evans/create-pull-request@v3
+      - uses: peter-evans/create-pull-request@v3
 
