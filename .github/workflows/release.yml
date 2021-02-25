@@ -26,11 +26,13 @@ jobs:
         run: |
           yarn install
           yarn release
+          echo "new_tag=$(git describe)" >> $GITHUB_ENV
       - name: Push release
         run: |
-          newTag=$(git describe)
-          git push origin $newTag
+          git push origin $new_tag
           git checkout master
-          git cherry-pick $newTag
+          git cherry-pick $new_tag
       - uses: peter-evans/create-pull-request@v3
+        with:
+          title: 'chore(release): ${{ env.new_tag }}'
 
