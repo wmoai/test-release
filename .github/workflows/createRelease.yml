@@ -20,8 +20,7 @@ jobs:
       - name: Prepare release
         run: |
           base_tag=v$(npx -c 'echo "$npm_package_version"')
-          git checkout -b release $base_tag
-          git push origin release
+          git checkout -b $base_tag
           git merge --no-edit ${{ github.ref }}
           yarn install
         env:
@@ -34,5 +33,4 @@ jobs:
         uses: peter-evans/create-pull-request@v3
         with:
           title: 'chore(release): conifrm ${{ env.new_tag }}'
-          base: 'remotes/origin/release'
 
