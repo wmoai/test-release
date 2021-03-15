@@ -21,6 +21,7 @@ jobs:
         run: |
           baseTag=v$(npx -c 'echo "$npm_package_version"')
           git checkout -b release $baseTag
+          git push origin release
           git merge --no-edit ${{ github.ref }}
       - name: Run release
         run: |
