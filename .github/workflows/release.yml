@@ -1,10 +1,10 @@
-name: create release
+name: automatic release
 
 on:
   workflow_dispatch:
 
 jobs:
-  create_release:
+  release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,16 +19,20 @@ jobs:
           git config user.name "github-actions[bot]"
       - name: Prepare release
         run: |
-          base_tag=v$(npx -c 'echo "$npm_package_version"')
-          git checkout -b $base_tag
+          baseTag=v$(npx -c 'echo "$npm_package_version"')
+          git checkout $baseTag
           git merge --no-edit ${{ github.ref }}
-          yarn install
       - name: Run release
         run: |
+          yarn install
           yarn release
           echo "new_tag=$(git describe)" >> $GITHUB_ENV
-      - name: Craete Pull Request
-        uses: peter-evans/create-pull-request@v3
+      - name: Push release
+        run: |
+          git push origin $new_tag
+          git checkout master
+          git cherry-pick $new_tag
+      - uses: peter-evans/create-pull-request@v3
         with:
-          title: 'chore(release): conifrm ${{ env.new_tag }}'
+          title: 'chore(release): ${{ env.new_tag }}'
 
