@@ -21,10 +21,11 @@ jobs:
         run: |
           base_tag=v$(npx -c 'echo "$npm_package_version"')
           git checkout -b release $base_tag
-          git remote -v
           git push origin release
           git merge --no-edit ${{ github.ref }}
           yarn install
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Run release
         run: |
           yarn release
