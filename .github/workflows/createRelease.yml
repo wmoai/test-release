@@ -20,7 +20,7 @@ jobs:
       - name: Prepare release
         run: |
           baseTag=v$(npx -c 'echo "$npm_package_version"')
-          git checkout $baseTag
+          git checkout -b release $baseTag
           git merge --no-edit ${{ github.ref }}
       - name: Run release
         run: |
