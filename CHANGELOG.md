@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.2](https://github.com/wmoai/test-release/compare/v1.1.1...v1.1.2) (2021-03-15)
+
+
+### Bug Fixes
+
+* add env ([29a411c](https://github.com/wmoai/test-release/commit/29a411cf4b9ced898b747050323b5ec8f697d1b0))
+* modify  release ([81822b1](https://github.com/wmoai/test-release/commit/81822b1dae953f83fba94d07d047e3f5e79d9e4f))
+* modify release ([b2a0fa6](https://github.com/wmoai/test-release/commit/b2a0fa698340b02d91f3c24f309e7e115055e641))
+* modify release ([0efb37a](https://github.com/wmoai/test-release/commit/0efb37a607b853010a8df953cc33c8bc07ac79a1))
+* modify release ([fb47963](https://github.com/wmoai/test-release/commit/fb479636bb72d4a604234dc2a59415f712763344))
+* modify release ([84416ff](https://github.com/wmoai/test-release/commit/84416ff29c905be7cb44582b59b2b85258b8ef8b))
+* modify release ([e37ce74](https://github.com/wmoai/test-release/commit/e37ce74ceed71dbc3f1db81a51cf4bb4a7c63a9e))
+* release ([2adf9e0](https://github.com/wmoai/test-release/commit/2adf9e0784e5958e6439e4256c3de5fc38eee2f3))
+* release ([1ad6873](https://github.com/wmoai/test-release/commit/1ad6873ba557ebc2dfbfb8878dd9d2cf238dd52b))
+* remove release workflow ([68d3daf](https://github.com/wmoai/test-release/commit/68d3dafb9ee48063c84f237c38150c1a43f0b01e))
+* separate release ([989ea50](https://github.com/wmoai/test-release/commit/989ea5079c1ed58462dd3907038ecca08d97bce8))
+
 ### [1.1.1](https://github.com/wmoai/test-release/compare/v1.1.0...v1.1.1) (2021-02-25)
 
 
