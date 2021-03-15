@@ -1,0 +1,34 @@
+name: publish release
+
+on:
+  pull_request_review:
+    types: [submitted]
+    branches: ['release']
+
+jobs:
+  publish_release:
+    if: github.event.review.state == 'approved'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 12
+      - name: Git config
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+      - run: yarn install
+      - name: Push release
+        run: |
+          tag=v$(npx -c 'echo "$npm_package_version"')
+          git push origin $tag
+          git checkout master
+          git cherry-pick $tag
+      - name: Craete Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: 'chore(release): ${{ env.new_tag }}'
+
